@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = DataRepository.shared.isDropboxLoggedIn ? UINavigationController(rootViewController:  FilesListViewController()) : AuthViewController()
+        window?.rootViewController = UINavigationController(rootViewController:  FilesListViewController())
         window?.makeKeyAndVisible()
         guard let _ = (scene as? UIWindowScene) else { return }
     }

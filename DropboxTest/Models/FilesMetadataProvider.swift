@@ -42,9 +42,6 @@ class FilesMetadataProvider: NSObject {
             continuation in
             DropboxClientsManager.authorizedClient?.files.listFolder(path: "").response(completionHandler: {
                 result, error in
-                /*if let error = error as? AuthError {
-                    error == .expiredAccessToken
-                }*/
                 guard let result else {
                     continuation.resume(throwing: NSError(domain: self.errorDomain, code: 5, userInfo: [NSLocalizedDescriptionKey : error?.description ?? NSLocalizedString("Unknown error", comment: "")]))
                     return

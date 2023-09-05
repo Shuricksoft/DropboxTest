@@ -19,10 +19,6 @@ final class DataRepository: NSObject {
     
     static let shared = DataRepository()
     
-    var isDropboxLoggedIn : Bool {
-        DropboxClientsManager.authorizedClient != nil
-    }
-    
     func loadFilesMetadata() async throws -> Array<Files.Metadata>{
         let metadataProvider = FilesMetadataProvider()
         return try await metadataProvider.filesMetadata()

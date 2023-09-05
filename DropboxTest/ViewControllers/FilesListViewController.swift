@@ -45,7 +45,6 @@ final class FilesListViewController: UIViewController, UICollectionViewDelegate,
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Log out", comment: ""), style: .plain, target: self, action: #selector(logoutPressed))
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Reload", comment: ""), style: .plain, target: self, action: #selector(reloadPressed))
     }
     
@@ -69,13 +68,6 @@ final class FilesListViewController: UIViewController, UICollectionViewDelegate,
     
 
     // MARK: - Buttons callbacks
-    
-    @objc private func logoutPressed() {
-        DropboxClientsManager.unlinkClients()
-        let window = self.view.window!
-        window.windowScene?.windows[0].rootViewController = AuthViewController()
-        UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: {})
-    }
     
     @objc private func reloadPressed() {
         loadFiles()

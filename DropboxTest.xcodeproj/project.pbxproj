@@ -11,7 +11,6 @@
 		5EC1C4BF2A9E307800FAC311 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC1C4BE2A9E307800FAC311 /* SceneDelegate.swift */; };
 		5EC1C4C62A9E307900FAC311 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EC1C4C52A9E307900FAC311 /* Assets.xcassets */; };
 		5EC1C4C92A9E307900FAC311 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EC1C4C72A9E307900FAC311 /* LaunchScreen.storyboard */; };
-		5EC1C4D22A9E318200FAC311 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC1C4D12A9E318200FAC311 /* AuthViewController.swift */; };
 		5EC1C4D52A9E333100FAC311 /* SwiftyDropbox in Frameworks */ = {isa = PBXBuildFile; productRef = 5EC1C4D42A9E333100FAC311 /* SwiftyDropbox */; };
 		5EC1C4D72A9E390B00FAC311 /* FilesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC1C4D62A9E390B00FAC311 /* FilesListViewController.swift */; };
 		5EC1C4DA2A9E3DA200FAC311 /* FileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC1C4D92A9E3DA200FAC311 /* FileCollectionViewCell.swift */; };
@@ -54,7 +53,6 @@
 		5EC1C4C52A9E307900FAC311 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5EC1C4C82A9E307900FAC311 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5EC1C4CA2A9E307900FAC311 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5EC1C4D12A9E318200FAC311 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		5EC1C4D62A9E390B00FAC311 /* FilesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesListViewController.swift; sourceTree = "<group>"; };
 		5EC1C4D92A9E3DA200FAC311 /* FileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCollectionViewCell.swift; sourceTree = "<group>"; };
 		5EC1C4DC2A9E4E4F00FAC311 /* ThumbnailsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailsProvider.swift; sourceTree = "<group>"; };
@@ -139,7 +137,6 @@
 		5EC1C4D02A9E316000FAC311 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				5EC1C4D12A9E318200FAC311 /* AuthViewController.swift */,
 				5EC1C4D62A9E390B00FAC311 /* FilesListViewController.swift */,
 				5EC1C4DE2A9F590700FAC311 /* FileDetailedViewController.swift */,
 				5EC1C4E62AA0D72600FAC311 /* ImageDetailedViewController.swift */,
@@ -323,7 +320,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EC1C4E32A9F62CF00FAC311 /* PlayerView.swift in Sources */,
-				5EC1C4D22A9E318200FAC311 /* AuthViewController.swift in Sources */,
 				5EC1C4BD2A9E307800FAC311 /* AppDelegate.swift in Sources */,
 				5EC1C4FC2AA2328900FAC311 /* FilesMetadataProvider.swift in Sources */,
 				5EC1C4DA2A9E3DA200FAC311 /* FileCollectionViewCell.swift in Sources */,
