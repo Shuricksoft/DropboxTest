@@ -14,7 +14,6 @@ final class FilesListViewController: UIViewController, UICollectionViewDelegate,
     private let collectionView : UICollectionView!
     private let cellId = "cell"
     private var metadataCache = Array<Files.Metadata>()
-    private var observer : NSObjectProtocol?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
@@ -23,10 +22,6 @@ final class FilesListViewController: UIViewController, UICollectionViewDelegate,
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(observer as Any)
     }
     
     override func loadView() {
@@ -50,13 +45,6 @@ final class FilesListViewController: UIViewController, UICollectionViewDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Reload", comment: ""), style: .plain, target: self, action: #selector(reloadPressed))
-        observer = NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil, using: {
-            [weak self]
-            _ in
-            Task {
-                await self?.refreshTokenIfNeeded()
-            }
-        })
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -70,7 +58,7 @@ final class FilesListViewController: UIViewController, UICollectionViewDelegate,
     private func refreshTokenIfNeeded() async {
         if DropboxClientsManager.authorizedClient == nil {
             do {
-                try await DropboxClientsManager.refreshToken()
+                try await DropboxRefreshManager.shared.refreshToken()
             }
             catch {
                 let alert = UIAlertController(title: NSLocalizedString("Couldn't update the access token", comment: ""), message: nil, preferredStyle: .alert)
