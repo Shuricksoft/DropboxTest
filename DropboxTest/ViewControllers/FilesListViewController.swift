@@ -40,12 +40,24 @@ final class FilesListViewController: UIViewController, UICollectionViewDelegate,
             collectionView.topAnchor.constraint(equalTo: self.view.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
-        loadFiles()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Reload", comment: ""), style: .plain, target: self, action: #selector(reloadPressed))
+        Task {
+            if DropboxClientsManager.authorizedClient == nil {
+                do {
+                    try await DropboxClientsManager.refreshToken()
+                }
+                catch {
+                    let alert = UIAlertController(title: NSLocalizedString("Couldn't update the access token", comment: ""), message: nil, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default))
+                    self.present(alert, animated: true)
+                }
+            }
+            loadFiles()
+        }
     }
     
     private func loadFiles() {
